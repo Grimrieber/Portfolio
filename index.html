@@ -198,19 +198,19 @@
 
     <article class="proj">
       <div class="proj-head">
-        <h3>OnlineTrainer</h3>
+        <h3>Apex Coaching</h3>
         <span class="tag flag">Flagship</span>
       </div>
-      <p class="sub">A multi-tenant marketplace and client portal connecting personal trainers with clients — three role-based portals behind a single identity system.</p>
+      <p class="sub">A personal-training marketplace with split payments — three role-scoped portals behind one identity system, and a platform commission taken on every charge.</p>
       <div class="stack">
         <span class="chip">.NET 10</span><span class="chip">Blazor Server</span><span class="chip">EF Core 10</span>
-        <span class="chip">ASP.NET Core Identity</span><span class="chip">SQL Server</span><span class="chip">Stripe</span>
+        <span class="chip">ASP.NET Core Identity</span><span class="chip">SQL Server</span><span class="chip">Stripe Connect</span>
       </div>
       <ul>
         <li><strong>Domain model</strong> spanning Trainer, ClientProfile, Booking, Engagement, ServicePackage, TrainingProgram, Payment, and Lead entities — mapped through EF Core with code-first migrations.</li>
         <li><strong>Three portals, one auth system.</strong> Admin (overview, trainer approval, lead pipeline), Trainer (clients, packages, earnings, profile), and Client (booking, program, billing) — each scoped by role claims.</li>
-        <li><strong>Stripe payments</strong> through a dedicated service layer handling package purchases and trainer payouts.</li>
-        <li><strong>Public marketing surface</strong> — pricing, how-it-works, trainer directory, and demo — served from the same application under a separate layout.</li>
+        <li><strong>Stripe Connect marketplace payments</strong> — subscriptions and one-off bookings, with the platform fee split out per trainer commission rate. Falls back to a simulated checkout when no keys are configured, so every flow stays demonstrable.</li>
+        <li><strong>Public marketing surface</strong> — pricing, how-it-works, a trainer directory with per-trainer profile pages, and a contact form that persists real leads into the admin pipeline.</li>
       </ul>
       <div class="metric">~18,900 lines · 60 source files · built on the current .NET release</div>
     </article>
