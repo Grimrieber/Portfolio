@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stephan Rieber — Full-Stack ASP.NET Software Engineer</title>
+<meta name="description" content="Full-Stack ASP.NET Software Engineer with 8+ years building enterprise web applications in VB.NET, C#, ASP.NET Core, Blazor, and MSSQL.">
+<meta property="og:title" content="Stephan Rieber — Full-Stack ASP.NET Software Engineer">
+<meta property="og:description" content="Enterprise web applications on the Microsoft stack — VB.NET, C#, ASP.NET Core, Blazor, MSSQL.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+<style>
+  :root{
+    --bg:#ffffff; --bg-alt:#f6f8fa; --card:#ffffff; --border:#d8dee4;
+    --text:#1f2328; --muted:#59636e; --faint:#818b98;
+    --accent:#0969da; --accent-soft:#ddf4ff; --accent-border:#54aeff;
+    --green:#1a7f37; --green-soft:#dafbe1;
+    --amber:#9a6700; --amber-soft:#fff8c5;
+    --shadow:0 1px 3px rgba(31,35,40,.08),0 8px 24px rgba(31,35,40,.06);
+    --radius:12px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0d1117; --bg-alt:#161b22; --card:#161b22; --border:#30363d;
+      --text:#e6edf3; --muted:#9198a1; --faint:#6e7681;
+      --accent:#4493f8; --accent-soft:#121d2f; --accent-border:#1f6feb;
+      --green:#3fb950; --green-soft:#0f2417;
+      --amber:#d29922; --amber-soft:#272115;
+      --shadow:0 1px 3px rgba(1,4,9,.4),0 8px 24px rgba(1,4,9,.3);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0d1117; --bg-alt:#161b22; --card:#161b22; --border:#30363d;
+    --text:#e6edf3; --muted:#9198a1; --faint:#6e7681;
+    --accent:#4493f8; --accent-soft:#121d2f; --accent-border:#1f6feb;
+    --green:#3fb950; --green-soft:#0f2417;
+    --amber:#d29922; --amber-soft:#272115;
+    --shadow:0 1px 3px rgba(1,4,9,.4),0 8px 24px rgba(1,4,9,.3);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* ---------- Header ---------- */
+  header{
+    background:var(--bg-alt); border-bottom:1px solid var(--border);
+    padding:72px 0 56px; position:relative;
+  }
+  .theme-btn{
+    position:absolute; top:20px; right:24px;
+    background:var(--card); border:1px solid var(--border); color:var(--muted);
+    width:38px; height:38px; border-radius:50%; cursor:pointer;
+    font-size:17px; line-height:1; display:grid; place-items:center;
+    transition:border-color .15s,color .15s;
+  }
+  .theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+  h1{font-size:clamp(2rem,5vw,2.85rem);font-weight:800;letter-spacing:-.022em;line-height:1.15}
+  .role{
+    font-size:clamp(1.02rem,2.4vw,1.22rem); color:var(--accent);
+    font-weight:600; margin-top:8px;
+  }
+  .loc{color:var(--faint);font-size:.9rem;margin-top:6px}
+  .intro{margin-top:22px;font-size:1.05rem;color:var(--muted);max-width:64ch}
+  .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+  .btn{
+    display:inline-flex;align-items:center;gap:7px;
+    padding:9px 16px;border-radius:8px;font-size:.9rem;font-weight:600;
+    border:1px solid var(--border);background:var(--card);color:var(--text);
+    transition:border-color .15s,transform .1s;
+  }
+  .btn:hover{text-decoration:none;border-color:var(--accent);transform:translateY(-1px)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.primary:hover{filter:brightness(1.08)}
+
+  /* ---------- Sections ---------- */
+  section{padding:56px 0}
+  section + section{border-top:1px solid var(--border)}
+  h2{
+    font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;
+    color:var(--faint);margin-bottom:26px;
+  }
+  .note{
+    background:var(--amber-soft); border:1px solid var(--border); border-left:3px solid var(--amber);
+    padding:14px 18px; border-radius:8px; font-size:.9rem; color:var(--muted); margin-bottom:28px;
+  }
+
+  /* ---------- Project cards ---------- */
+  .proj{
+    background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+    padding:26px; margin-bottom:20px; box-shadow:var(--shadow);
+    transition:border-color .15s, transform .12s;
+  }
+  .proj:hover{border-color:var(--accent-border);transform:translateY(-2px)}
+  .proj-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:4px}
+  .proj h3{font-size:1.22rem;font-weight:700;letter-spacing:-.01em}
+  .tag{
+    font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+    padding:3px 9px;border-radius:20px;white-space:nowrap;
+  }
+  .tag.flag{background:var(--green-soft);color:var(--green);border:1px solid var(--green)}
+  .tag.priv{background:var(--bg-alt);color:var(--faint);border:1px solid var(--border)}
+  .sub{color:var(--muted);font-size:.95rem;margin:8px 0 16px}
+  .stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+  .chip{
+    font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+    font-size:.73rem;padding:3px 9px;border-radius:6px;
+    background:var(--accent-soft);color:var(--accent);border:1px solid var(--accent-border);
+  }
+  .proj ul{list-style:none;display:grid;gap:9px}
+  .proj li{position:relative;padding-left:20px;font-size:.94rem;color:var(--muted)}
+  .proj li::before{
+    content:"";position:absolute;left:4px;top:.62em;
+    width:5px;height:5px;border-radius:50%;background:var(--accent);
+  }
+  .proj li strong{color:var(--text);font-weight:600}
+  .metric{
+    margin-top:16px;padding-top:14px;border-top:1px dashed var(--border);
+    font-size:.82rem;color:var(--faint);
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+
+  /* ---------- Skills ---------- */
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .skill{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+  .skill h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;color:var(--faint);margin-bottom:12px}
+  .skill .stack{margin:0}
+
+  /* ---------- Experience ---------- */
+  .job{
+    position:relative;padding-left:26px;padding-bottom:28px;
+    border-left:2px solid var(--border);
+  }
+  .job:last-child{padding-bottom:0;border-left-color:transparent}
+  .job::before{
+    content:"";position:absolute;left:-7px;top:5px;width:12px;height:12px;
+    border-radius:50%;background:var(--accent);border:3px solid var(--bg);
+  }
+  .job h3{font-size:1.05rem;font-weight:700}
+  .job .meta{color:var(--faint);font-size:.87rem;margin:3px 0 10px}
+  .job p{color:var(--muted);font-size:.94rem}
+  .job b{color:var(--text)}
+
+  /* ---------- Footer ---------- */
+  footer{
+    border-top:1px solid var(--border);background:var(--bg-alt);
+    padding:40px 0;text-align:center;
+  }
+  footer p{color:var(--faint);font-size:.87rem}
+  footer .links{justify-content:center;margin-top:18px}
+
+  @media(max-width:600px){
+    header{padding:56px 0 44px}
+    section{padding:44px 0}
+    .proj{padding:20px}
+    .theme-btn{top:14px;right:16px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <button class="theme-btn" id="themeBtn" aria-label="Toggle color theme">◐</button>
+  <div class="wrap">
+    <h1>Stephan Rieber</h1>
+    <div class="role">Full-Stack ASP.NET Software Engineer</div>
+    <div class="loc">Lombard, Illinois</div>
+    <p class="intro">
+      Building enterprise web applications on the Microsoft stack for 8+ years — from legacy
+      VB.NET modernization to greenfield .NET 10 and Blazor. I work end to end: schema design
+      and query tuning, through API layers, to the front end — plus the deployment and
+      monitoring around it.
+    </p>
+    <div class="links">
+      <a class="btn primary" href="mailto:stephanr@spydernetworkinc.com">✉ Get in touch</a>
+      <a class="btn" href="https://linkedin.com/in/stephanrieber" target="_blank" rel="noopener">in — LinkedIn</a>
+      <a class="btn" href="https://github.com/Grimrieber" target="_blank" rel="noopener">⌘ GitHub</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <h2>Selected Work</h2>
+    <div class="note">
+      <strong>A note on source code:</strong> most of what I build is internal business software or
+      client-owned, so those repositories stay private. Below are architecture writeups of real
+      production systems. I'm glad to walk through any of them — including code — in an interview.
+    </div>
+
+    <article class="proj">
+      <div class="proj-head">
+        <h3>OnlineTrainer</h3>
+        <span class="tag flag">Flagship</span>
+      </div>
+      <p class="sub">A multi-tenant marketplace and client portal connecting personal trainers with clients — three role-based portals behind a single identity system.</p>
+      <div class="stack">
+        <span class="chip">.NET 10</span><span class="chip">Blazor Server</span><span class="chip">EF Core 10</span>
+        <span class="chip">ASP.NET Core Identity</span><span class="chip">SQL Server</span><span class="chip">Stripe</span>
+      </div>
+      <ul>
+        <li><strong>Domain model</strong> spanning Trainer, ClientProfile, Booking, Engagement, ServicePackage, TrainingProgram, Payment, and Lead entities — mapped through EF Core with code-first migrations.</li>
+        <li><strong>Three portals, one auth system.</strong> Admin (overview, trainer approval, lead pipeline), Trainer (clients, packages, earnings, profile), and Client (booking, program, billing) — each scoped by role claims.</li>
+        <li><strong>Stripe payments</strong> through a dedicated service layer handling package purchases and trainer payouts.</li>
+        <li><strong>Public marketing surface</strong> — pricing, how-it-works, trainer directory, and demo — served from the same application under a separate layout.</li>
+      </ul>
+      <div class="metric">~18,900 lines · 60 source files · built on the current .NET release</div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-head"><h3>SEO Optimizer</h3></div>
+      <p class="sub">A crawler-driven site auditing tool structured as a subscription product, with the audit engine cleanly separated from billing and reporting.</p>
+      <div class="stack">
+        <span class="chip">VB.NET</span><span class="chip">ASP.NET</span><span class="chip">HtmlAgilityPack</span>
+        <span class="chip">Web API</span><span class="chip">SQL Server</span>
+      </div>
+      <ul>
+        <li><strong>Audit engine</strong> parses live pages and scores HTTPS enforcement, mixed-content detection, meta title and description, H1–H3 heading hierarchy, image <code>alt</code> coverage, and internal/external link mapping.</li>
+        <li><strong>Broken-link detection</strong> with independent request timeouts — 5s per page, 3s per link — so a single dead host can't stall an entire crawl.</li>
+        <li><strong>Certificate handling</strong> via X509 validation callbacks to survive real-world HTTPS edge cases.</li>
+        <li><strong>Service-layer separation</strong> — audit, billing, reporting, and user services each independently testable.</li>
+      </ul>
+      <div class="metric">~12,600 lines · 43 source files</div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-head"><h3>MultiTool</h3></div>
+      <p class="sub">A single authenticated platform hosting several independent business tools behind shared identity and data access.</p>
+      <div class="stack">
+        <span class="chip">VB.NET</span><span class="chip">ASP.NET WebForms</span><span class="chip">Entity Framework</span>
+        <span class="chip">MSSQL</span><span class="chip">PDF Generation</span>
+      </div>
+      <ul>
+        <li><strong>Complete account system</strong> built from scratch — registration, login, email verification, password reset, and user settings.</li>
+        <li><strong>Reporting dashboard</strong> over the AdventureWorks enterprise schema with parameterized queries and aggregations.</li>
+        <li><strong>Resume &amp; portfolio generator</strong> producing server-side PDF output from user-entered data.</li>
+        <li><strong>Shared data context and master layouts</strong> so each tool inherits auth and styling without duplication.</li>
+      </ul>
+      <div class="metric">~9,200 lines · 49 source files</div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-head">
+        <h3>Enterprise Data Warehouse &amp; Vendor Import</h3>
+        <span class="tag priv">Client work</span>
+      </div>
+      <p class="sub">Vendor data ingestion platform replacing a manual spreadsheet process for a distribution business.</p>
+      <div class="stack">
+        <span class="chip">VB.NET</span><span class="chip">ASP.NET</span><span class="chip">MSSQL</span><span class="chip">ETL</span>
+      </div>
+      <ul>
+        <li><strong>Configurable ingest pipeline</strong> — upload, validate, stage, then commit — handling varied vendor file formats without code changes per vendor.</li>
+        <li><strong>Non-technical operator screens</strong> for vendor management and correcting rejected rows.</li>
+        <li><strong>Status dashboard</strong> surfacing ingest results and data-quality signals.</li>
+        <li><strong>Rearchitected as V2</strong> after production feedback on the first release.</li>
+      </ul>
+    </article>
+
+    <article class="proj">
+      <div class="proj-head">
+        <h3>SAML SSO Billing Portal</h3>
+        <span class="tag priv">Client work</span>
+      </div>
+      <p class="sub">Single sign-on integration letting members reach billing preferences through an external identity provider.</p>
+      <div class="stack">
+        <span class="chip">VB.NET</span><span class="chip">ASP.NET</span><span class="chip">SAML 2.0</span><span class="chip">IIS</span>
+      </div>
+      <ul>
+        <li><strong>SAML 2.0 service provider</strong> implementing metadata endpoint, assertion consumer, and single logout.</li>
+        <li><strong>Built in two variants</strong> — middleware-based and a dependency-free custom implementation — to evaluate control versus long-term maintenance burden.</li>
+        <li><strong>Custom logging module</strong> for auditing the authentication handshake in production.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>Technical Stack</h2>
+    <div class="skills">
+      <div class="skill">
+        <h4>Languages &amp; Frameworks</h4>
+        <div class="stack">
+          <span class="chip">VB.NET</span><span class="chip">C#</span><span class="chip">ASP.NET Core</span>
+          <span class="chip">Blazor</span><span class="chip">MVC</span><span class="chip">WebForms</span>
+          <span class="chip">Web API</span><span class="chip">EF / EF Core</span>
+          <span class="chip">JavaScript</span><span class="chip">HTML5</span><span class="chip">CSS3</span>
+        </div>
+      </div>
+      <div class="skill">
+        <h4>Data</h4>
+        <div class="stack">
+          <span class="chip">MSSQL</span><span class="chip">Stored Procedures</span><span class="chip">Triggers</span>
+          <span class="chip">Views &amp; Functions</span><span class="chip">Query Optimization</span>
+          <span class="chip">Schema Design</span><span class="chip">SSRS</span><span class="chip">ETL</span>
+        </div>
+      </div>
+      <div class="skill">
+        <h4>Practice &amp; Infrastructure</h4>
+        <div class="stack">
+          <span class="chip">MSTest</span><span class="chip">NUnit</span><span class="chip">xUnit</span>
+          <span class="chip">TDD</span><span class="chip">IIS</span><span class="chip">Git</span>
+          <span class="chip">REST</span><span class="chip">OData</span><span class="chip">SAML 2.0</span><span class="chip">Stripe</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="job">
+      <h3>Senior Software Developer / Full-Stack VB.NET Developer</h3>
+      <div class="meta">Sirius Business · Lombard, IL · 2015 – Present</div>
+      <p>
+        Refactored legacy VB.NET applications for a <b>20% page-load improvement</b> and materially
+        better maintainability. Designed ASP.NET Web API endpoints consumed by HTML5/JavaScript
+        front ends. Introduced unit testing and TDD practice that <b>cut production bugs 25%</b>.
+        Integrated REST and OData services. Mentored a junior developer to mid-level within 12 months.
+      </p>
+    </div>
+    <div class="job">
+      <h3>IT Director / DBA / Data Analyst</h3>
+      <div class="meta">Air. Water. Energy · Carol Stream, IL · 2016 – 2023</div>
+      <p>
+        Directed IT operations and <b>reduced system downtime 30%</b> through proactive monitoring
+        and process improvement. Owned MSSQL schema design, stored procedures, triggers, and
+        performance tuning across business-critical databases. Built automated SSRS dashboards
+        giving leadership real-time operational visibility.
+      </p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>Open to full-stack .NET engineering roles.</p>
+    <div class="links">
+      <a class="btn primary" href="mailto:stephanr@spydernetworkinc.com">✉ stephanr@spydernetworkinc.com</a>
+      <a class="btn" href="https://linkedin.com/in/stephanrieber" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/Grimrieber" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('themeBtn');
+    var stored = null;
+    try { stored = localStorage.getItem('theme'); } catch (e) {}
+    if (stored) document.documentElement.setAttribute('data-theme', stored);
+
+    btn.addEventListener('click', function () {
+      var cur = document.documentElement.getAttribute('data-theme');
+      if (!cur) {
+        cur = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      var next = cur === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  })();
+</script>
+
+</body>
+</html>
