@@ -127,6 +127,26 @@
     font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   }
 
+  .repo{
+    display:inline-flex;align-items:center;gap:6px;margin-top:16px;
+    font-size:.82rem;font-weight:600;padding:6px 12px;border-radius:6px;
+    border:1px solid var(--border);background:var(--bg-alt);color:var(--accent);
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  .repo:hover{text-decoration:none;border-color:var(--accent)}
+  .more{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:14px}
+  .mini{
+    background:var(--card);border:1px solid var(--border);border-radius:10px;padding:17px;
+    transition:border-color .15s,transform .12s;display:block;
+  }
+  .mini:hover{border-color:var(--accent-border);transform:translateY(-2px);text-decoration:none}
+  .mini h4{font-size:.97rem;font-weight:700;color:var(--text);margin-bottom:5px}
+  .mini p{font-size:.85rem;color:var(--muted);line-height:1.5}
+  .mini .st{
+    margin-top:10px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:.7rem;color:var(--faint);
+  }
+
   /* ---------- Skills ---------- */
   .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
   .skill{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
@@ -191,9 +211,9 @@
   <section>
     <h2>Selected Work</h2>
     <div class="note">
-      <strong>A note on source code:</strong> most of what I build is internal business software or
-      client-owned, so those repositories stay private. Below are architecture writeups of real
-      production systems. I'm glad to walk through any of them — including code — in an interview.
+      <strong>A note on source code:</strong> the personal projects below are public on GitHub —
+      source, schema, and setup instructions included. Client and employer systems stay private, so
+      those are described rather than linked. I'm glad to walk through any of them in an interview.
     </div>
 
     <article class="proj">
@@ -213,6 +233,7 @@
         <li><strong>Public marketing surface</strong> — pricing, how-it-works, a trainer directory with per-trainer profile pages, and a contact form that persists real leads into the admin pipeline.</li>
       </ul>
       <div class="metric">.NET 10 · 52 source files · EF Core code-first migrations</div>
+      <a class="repo" href="https://github.com/Grimrieber/ApexCoaching" target="_blank" rel="noopener">↗ github.com/Grimrieber/ApexCoaching</a>
     </article>
 
     <article class="proj">
@@ -229,6 +250,7 @@
         <li><strong>Service-layer separation</strong> — audit, billing, reporting, and user services each independently testable.</li>
       </ul>
       <div class="metric">Four-service architecture · live HTTP crawler</div>
+      <a class="repo" href="https://github.com/Grimrieber/SEOOptimizer" target="_blank" rel="noopener">↗ github.com/Grimrieber/SEOOptimizer</a>
     </article>
 
     <article class="proj">
@@ -245,6 +267,7 @@
         <li><strong>Shared data context and master layouts</strong> so each tool inherits auth and styling without duplication.</li>
       </ul>
       <div class="metric">Three applications behind one account system</div>
+      <a class="repo" href="https://github.com/Grimrieber/MultiTool" target="_blank" rel="noopener">↗ github.com/Grimrieber/MultiTool</a>
     </article>
 
     <article class="proj">
@@ -279,6 +302,37 @@
         <li><strong>Custom logging module</strong> for auditing the authentication handshake in production.</li>
       </ul>
     </article>
+  </section>
+
+  <section>
+    <h2>Also on GitHub</h2>
+    <div class="more">
+      <a class="mini" href="https://github.com/Grimrieber/OnlineShop" target="_blank" rel="noopener">
+        <h4>OnlineShop ↗</h4>
+        <p>Multi-vendor marketplace — shops, products, cart, reviews, and buyer–seller messaging.</p>
+        <div class="st">VB.NET · EF · 13 tables</div>
+      </a>
+      <a class="mini" href="https://github.com/Grimrieber/FoodRecipes" target="_blank" rel="noopener">
+        <h4>FoodRecipes ↗</h4>
+        <p>Recipe manager with nutrition calculation. Full schema, views and stored procedures in source.</p>
+        <div class="st">VB.NET · T-SQL procs &amp; views</div>
+      </a>
+      <a class="mini" href="https://github.com/Grimrieber/Gamba" target="_blank" rel="noopener">
+        <h4>Gamba ↗</h4>
+        <p>Charity events platform — event lifecycle, token balances, donation settlement.</p>
+        <div class="st">VB.NET · EF · 5 tables</div>
+      </a>
+      <a class="mini" href="https://github.com/Grimrieber/CouponApp" target="_blank" rel="noopener">
+        <h4>CouponApp ↗</h4>
+        <p>Coupon aggregator with per-click attribution and donation routing.</p>
+        <div class="st">VB.NET · SQL Server</div>
+      </a>
+      <a class="mini" href="https://github.com/Grimrieber/TinyTools" target="_blank" rel="noopener">
+        <h4>TinyTools ↗</h4>
+        <p>Web utility suite behind a hand-built account system — verification and expiring reset tokens.</p>
+        <div class="st">VB.NET · EF</div>
+      </a>
+    </div>
   </section>
 
   <section>
