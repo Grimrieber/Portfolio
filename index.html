@@ -219,70 +219,11 @@
   <section>
     <h2>Selected Work</h2>
     <div class="note">
-      <strong>A note on source code:</strong> the personal projects below are public on GitHub —
-      source, schema, and setup instructions included. Client and employer systems stay private, so
-      those are described rather than linked. I'm glad to walk through any of them in an interview.
+      <strong>VB.NET first.</strong> The projects below lead with my primary stack &mdash; VB.NET,
+      ASP.NET and SQL Server &mdash; followed by current-stack work in C# and TypeScript. Personal
+      projects are public on GitHub with source and schema included; client and employer systems stay
+      private and are described rather than linked. I'm glad to walk through any of them in an interview.
     </div>
-
-    <article class="proj">
-      <div class="proj-head">
-        <h3>Health Optimizer</h3>
-        <span class="tag flag">Flagship</span>
-      </div>
-      <p class="sub">A cross-platform mobile app for corrective-exercise assessment and nutrition coaching, with an encrypted local database and biometric lock.</p>
-      <div class="stack">
-        <span class="chip">.NET 9</span><span class="chip">MAUI</span><span class="chip">C#</span>
-        <span class="chip">SQLite + SQLCipher</span><span class="chip">MVVM</span><span class="chip">SkiaSharp</span>
-      </div>
-      <ul>
-        <li><strong>One codebase, four targets</strong> &mdash; Android, iOS, Mac Catalyst and Windows from a single MAUI project, built on CommunityToolkit MVVM.</li>
-        <li><strong>Eight-step corrective exercise assessment</strong> &mdash; posture, overhead squat, single-leg squat and push/pull screens that identify distortion syndromes and generate a corrective programme from the result.</li>
-        <li><strong>Nutrition coaching</strong> &mdash; calorie and macro calculation, meal planning, food logging with barcode scanning, and progress charting.</li>
-        <li><strong>Health data encrypted at rest.</strong> SQLite through SQLCipher, behind a PIN and biometric lock with security-question recovery &mdash; the data model covers assessments, measurements and food logs, so encryption is the baseline rather than a feature.</li>
-      </ul>
-      <div class="metric">.NET 9 MAUI · 390 source files · ~25 domain entities · Android · iOS · macOS · Windows</div>
-      <a class="repo" href="https://github.com/Grimrieber/IntelligentPersonalHealthOptimization" target="_blank" rel="noopener">↗ github.com/Grimrieber/IntelligentPersonalHealthOptimization</a>
-    </article>
-
-    <article class="proj">
-      <div class="proj-head">
-        <h3>Apex Coaching</h3>
-      </div>
-      <p class="sub">A personal-training marketplace with split payments — three role-scoped portals behind one identity system, and a platform commission taken on every charge.</p>
-      <div class="stack">
-        <span class="chip">.NET 10</span><span class="chip">Blazor Server</span><span class="chip">EF Core 10</span>
-        <span class="chip">ASP.NET Core Identity</span><span class="chip">SQL Server</span><span class="chip">Stripe Connect</span>
-      </div>
-      <ul>
-        <li><strong>Domain model</strong> spanning Trainer, ClientProfile, Booking, Engagement, ServicePackage, TrainingProgram, Payment, and Lead entities — mapped through EF Core with code-first migrations.</li>
-        <li><strong>Three portals, one auth system.</strong> Admin (overview, trainer approval, lead pipeline), Trainer (clients, packages, earnings, profile), and Client (booking, program, billing) — each scoped by role claims.</li>
-        <li><strong>Stripe Connect marketplace payments</strong> — subscriptions and one-off bookings, with the platform fee split out per trainer commission rate. Falls back to a simulated checkout when no keys are configured, so every flow stays demonstrable.</li>
-        <li><strong>Public marketing surface</strong> — pricing, how-it-works, a trainer directory with per-trainer profile pages, and a contact form that persists real leads into the admin pipeline.</li>
-      </ul>
-      <div class="metric">.NET 10 · 52 source files · EF Core code-first migrations</div>
-      <a class="repo" href="https://github.com/Grimrieber/ApexCoaching" target="_blank" rel="noopener">↗ github.com/Grimrieber/ApexCoaching</a>
-    </article>
-
-    <article class="proj">
-      <div class="proj-head">
-        <h3>QBToSQL</h3>
-        <span class="tag">Architecture showcase</span>
-      </div>
-      <p class="sub">Syncs multiple QuickBooks Desktop company files into SQL Server &mdash; each into its own database, on a schedule &mdash; without breaking when QuickBooks changes between versions.</p>
-      <div class="stack">
-        <span class="chip">.NET 8</span><span class="chip">C#</span><span class="chip">WPF</span>
-        <span class="chip">SQL Server</span><span class="chip">QBXML COM</span><span class="chip">xUnit</span>
-      </div>
-      <ul>
-        <li><strong>Drift-proof by design.</strong> Raw QBXML payloads land untouched in <code>landing.*</code>; typed <code>dbo.*</code> tables are projected from them. An unrecognised QuickBooks field lands successfully whether or not the mapping knows about it yet, so ingestion cannot break on a version upgrade.</li>
-        <li><strong>Re-runnable projection.</strong> Because payloads are never discarded, mapping logic can be revised and replayed against data already captured &mdash; a mapping bug is repairable retroactively without re-querying QuickBooks.</li>
-        <li><strong>Multi-tenant by database.</strong> A central registry holds the company list and per-company settings; each company is provisioned its own database from the same schema scripts, with one scheduler driving incremental syncs across all of them.</li>
-        <li><strong>Credentials never touch disk in plaintext</strong> &mdash; SQL and SMTP secrets are DPAPI-protected and scoped to the Windows user, encrypted on write by the property setters.</li>
-      </ul>
-      <div class="metric">.NET 8 · 5 schema scripts · 10 transaction types · published as architecture, engine withheld</div>
-      <a class="repo" href="https://github.com/Grimrieber/QBToSQL" target="_blank" rel="noopener">&#8599; github.com/Grimrieber/QBToSQL</a>
-    </article>
-
 
     <article class="proj">
       <div class="proj-head"><h3>OnlineShop</h3></div>
@@ -335,8 +276,7 @@
     </article>
 
     <article class="proj">
-      <div class="proj-head">
-        <h3>Enterprise Data Warehouse &amp; Vendor Import</h3>
+      <div class="proj-head"><h3>Enterprise Data Warehouse &amp; Vendor Import</h3>
         <span class="tag priv">Client work</span>
       </div>
       <p class="sub">Vendor data ingestion platform replacing a manual spreadsheet process for a distribution business.</p>
@@ -352,8 +292,7 @@
     </article>
 
     <article class="proj">
-      <div class="proj-head">
-        <h3>SAML SSO Billing Portal</h3>
+      <div class="proj-head"><h3>SAML SSO Billing Portal</h3>
         <span class="tag priv">Client work</span>
       </div>
       <p class="sub">Single sign-on integration letting members reach billing preferences through an external identity provider.</p>
@@ -366,43 +305,79 @@
         <li><strong>Custom logging module</strong> for auditing the authentication handshake in production.</li>
       </ul>
     </article>
+
+
+    <article class="proj">
+      <div class="proj-head"><h3>QBToSQL</h3>
+        <span class="tag">Architecture showcase</span>
+      </div>
+      <p class="sub">Syncs multiple QuickBooks Desktop company files into SQL Server &mdash; each into its own database, on a schedule &mdash; without breaking when QuickBooks changes between versions.</p>
+      <div class="stack">
+        <span class="chip">.NET 8</span><span class="chip">C#</span><span class="chip">WPF</span>
+        <span class="chip">SQL Server</span><span class="chip">QBXML COM</span><span class="chip">xUnit</span>
+      </div>
+      <ul>
+        <li><strong>Drift-proof by design.</strong> Raw QBXML payloads land untouched in <code>landing.*</code>; typed <code>dbo.*</code> tables are projected from them. An unrecognised QuickBooks field lands successfully whether or not the mapping knows about it yet, so ingestion cannot break on a version upgrade.</li>
+        <li><strong>Re-runnable projection.</strong> Because payloads are never discarded, mapping logic can be revised and replayed against data already captured &mdash; a mapping bug is repairable retroactively without re-querying QuickBooks.</li>
+        <li><strong>Multi-tenant by database.</strong> A central registry holds the company list and per-company settings; each company is provisioned its own database from the same schema scripts, with one scheduler driving incremental syncs across all of them.</li>
+        <li><strong>Credentials never touch disk in plaintext</strong> &mdash; SQL and SMTP secrets are DPAPI-protected and scoped to the Windows user, encrypted on write by the property setters.</li>
+      </ul>
+      <div class="metric">.NET 8 · 5 schema scripts · 10 transaction types · published as architecture, engine withheld</div>
+      <a class="repo" href="https://github.com/Grimrieber/QBToSQL" target="_blank" rel="noopener">&#8599; github.com/Grimrieber/QBToSQL</a>
+    </article>
+
+    <article class="proj">
+      <div class="proj-head"><h3>Health Optimizer</h3></div>
+      <p class="sub">A cross-platform mobile app for corrective-exercise assessment and nutrition coaching, with an encrypted local database and biometric lock.</p>
+      <div class="stack">
+        <span class="chip">.NET 9</span><span class="chip">MAUI</span><span class="chip">C#</span>
+        <span class="chip">SQLite + SQLCipher</span><span class="chip">MVVM</span><span class="chip">SkiaSharp</span>
+      </div>
+      <ul>
+        <li><strong>One codebase, four targets</strong> &mdash; Android, iOS, Mac Catalyst and Windows from a single MAUI project, built on CommunityToolkit MVVM.</li>
+        <li><strong>Eight-step corrective exercise assessment</strong> &mdash; posture, overhead squat, single-leg squat and push/pull screens that identify distortion syndromes and generate a corrective programme from the result.</li>
+        <li><strong>Nutrition coaching</strong> &mdash; calorie and macro calculation, meal planning, food logging with barcode scanning, and progress charting.</li>
+        <li><strong>Health data encrypted at rest.</strong> SQLite through SQLCipher, behind a PIN and biometric lock with security-question recovery &mdash; the data model covers assessments, measurements and food logs, so encryption is the baseline rather than a feature.</li>
+      </ul>
+      <div class="metric">.NET 9 MAUI · 390 source files · ~25 domain entities · Android · iOS · macOS · Windows</div>
+      <a class="repo" href="https://github.com/Grimrieber/IntelligentPersonalHealthOptimization" target="_blank" rel="noopener">↗ github.com/Grimrieber/IntelligentPersonalHealthOptimization</a>
+    </article>
+
+    <article class="proj">
+      <div class="proj-head"><h3>Apex Coaching</h3></div>
+      <p class="sub">A personal-training marketplace with split payments — three role-scoped portals behind one identity system, and a platform commission taken on every charge.</p>
+      <div class="stack">
+        <span class="chip">.NET 10</span><span class="chip">Blazor Server</span><span class="chip">EF Core 10</span>
+        <span class="chip">ASP.NET Core Identity</span><span class="chip">SQL Server</span><span class="chip">Stripe Connect</span>
+      </div>
+      <ul>
+        <li><strong>Domain model</strong> spanning Trainer, ClientProfile, Booking, Engagement, ServicePackage, TrainingProgram, Payment, and Lead entities — mapped through EF Core with code-first migrations.</li>
+        <li><strong>Three portals, one auth system.</strong> Admin (overview, trainer approval, lead pipeline), Trainer (clients, packages, earnings, profile), and Client (booking, program, billing) — each scoped by role claims.</li>
+        <li><strong>Stripe Connect marketplace payments</strong> — subscriptions and one-off bookings, with the platform fee split out per trainer commission rate. Falls back to a simulated checkout when no keys are configured, so every flow stays demonstrable.</li>
+        <li><strong>Public marketing surface</strong> — pricing, how-it-works, a trainer directory with per-trainer profile pages, and a contact form that persists real leads into the admin pipeline.</li>
+      </ul>
+      <div class="metric">.NET 10 · 52 source files · EF Core code-first migrations</div>
+      <a class="repo" href="https://github.com/Grimrieber/ApexCoaching" target="_blank" rel="noopener">↗ github.com/Grimrieber/ApexCoaching</a>
+    </article>
+
+    <article class="proj">
+      <div class="proj-head"><h3>Guild Site</h3></div>
+      <p class="sub">A community site for a World of Warcraft guild &mdash; roster and progression tracking pulled live from Blizzard's API, member-gated tooling, and an application pipeline.</p>
+      <div class="stack">
+        <span class="chip">TypeScript</span><span class="chip">Next.js 16</span><span class="chip">React 19</span>
+        <span class="chip">next-auth v5</span><span class="chip">Upstash Redis</span><span class="chip">Vercel</span>
+      </div>
+      <ul>
+        <li><strong>Two OAuth providers under one identity</strong> &mdash; Battle.net for character ownership and Discord for guild membership, with access gated on Discord role IDs so the member-only tooling checks a real source of truth rather than a local flag.</li>
+        <li><strong>Live Blizzard API integration</strong> &mdash; roster, progression, achievement and talent endpoints per realm and character, with results cached in Redis to stay inside rate limits.</li>
+        <li><strong>Scheduled snapshot pipeline</strong> &mdash; cron-triggered export, enrichment and detail routes with per-route execution budgets up to five minutes, so long-running enrichment doesn't block the request path.</li>
+        <li><strong>Application pipeline</strong> with proof-of-work bot protection on the public form and Discord webhook notification on submission.</li>
+      </ul>
+      <div class="metric">TypeScript &middot; 21,982 lines &middot; 1,585 commits &middot; 10 API routes &middot; deployed on Vercel</div>
+      <a class="repo" href="https://github.com/Grimrieber/lib-site" target="_blank" rel="noopener">&#8599; github.com/Grimrieber/lib-site</a>
+    </article>
   </section>
 
-  <section>
-    <h2>Also on GitHub</h2>
-    <div class="more">
-      <a class="mini" href="https://github.com/Grimrieber/OnlineShop" target="_blank" rel="noopener">
-        <h4>OnlineShop ↗</h4>
-        <p>Multi-vendor marketplace — shops, products, cart, reviews, and buyer–seller messaging.</p>
-        <div class="st">VB.NET · EF · 13 tables</div>
-      </a>
-      <a class="mini" href="https://github.com/Grimrieber/FoodRecipes" target="_blank" rel="noopener">
-        <h4>FoodRecipes ↗</h4>
-        <p>Recipe manager with nutrition calculation. Full schema, views and stored procedures in source.</p>
-        <div class="st">VB.NET · T-SQL procs &amp; views</div>
-      </a>
-      <a class="mini" href="https://github.com/Grimrieber/Gamba" target="_blank" rel="noopener">
-        <h4>Gamba ↗</h4>
-        <p>Charity events platform — event lifecycle, token balances, donation settlement.</p>
-        <div class="st">VB.NET · EF · 5 tables</div>
-      </a>
-      <a class="mini" href="https://github.com/Grimrieber/CouponApp" target="_blank" rel="noopener">
-        <h4>CouponApp ↗</h4>
-        <p>Coupon aggregator with per-click attribution and donation routing.</p>
-        <div class="st">VB.NET · SQL Server</div>
-      </a>
-      <a class="mini" href="https://github.com/Grimrieber/PythonFoundations" target="_blank" rel="noopener">
-        <h4>Python Foundations ↗</h4>
-        <p>Learning Python from scratch — twelve exercises over three weeks, kept in the order written.</p>
-        <div class="st">Python · learning log</div>
-      </a>
-      <a class="mini" href="https://github.com/Grimrieber/TinyTools" target="_blank" rel="noopener">
-        <h4>TinyTools ↗</h4>
-        <p>Web utility suite behind a hand-built account system — verification and expiring reset tokens.</p>
-        <div class="st">VB.NET · EF</div>
-      </a>
-    </div>
-  </section>
 
   <section>
     <h2>Technical Stack</h2>
