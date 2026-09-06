@@ -242,6 +242,23 @@
     </article>
 
     <article class="proj">
+      <div class="proj-head"><h3>TicketSystem</h3><span class="tag">Architecture showcase</span></div>
+      <p class="sub">A multi-tenant support desk in VB.NET &mdash; companies, their clients, projects and tickets, with a knowledge base that links back to the tickets that produced it. In production use.</p>
+      <div class="stack">
+        <span class="chip">VB.NET</span><span class="chip">ASP.NET WebForms</span><span class="chip">SQL Server</span>
+        <span class="chip">BCrypt</span><span class="chip">SignalR</span>
+      </div>
+      <ul>
+        <li><strong>Genuinely multi-tenant</strong> &mdash; a Company owns its Clients, Projects and Tickets, and queries are scoped by company at the data layer rather than filtered in the UI.</li>
+        <li><strong>Staged GUID primary-key migration</strong> against a live schema, split across sequenced scripts with separate foreign-key remediation. Converting keys and remediating constraints in one transaction over a populated database means a long lock and an all-or-nothing failure; in stages each part is separately verifiable.</li>
+        <li><strong>Knowledge base tied to its evidence</strong> &mdash; a join table records which tickets produced each article, so a recurring problem accumulates history instead of being answered from scratch.</li>
+        <li><strong>Thirteen tables</strong> covering tenancy, work, threaded and real-time messaging, the knowledge base with its audit trail, and an API request log.</li>
+      </ul>
+      <div class="metric">VB.NET &middot; 13-table schema &middot; staged GUID migration &middot; schema and business logic published, page layer withheld</div>
+      <a class="repo" href="https://github.com/Grimrieber/TicketSystem" target="_blank" rel="noopener">&#8599; github.com/Grimrieber/TicketSystem</a>
+    </article>
+
+    <article class="proj">
       <div class="proj-head"><h3>SEO Optimizer</h3></div>
       <p class="sub">A crawler-driven site auditing tool structured as a subscription product, with the audit engine cleanly separated from billing and reporting.</p>
       <div class="stack">
